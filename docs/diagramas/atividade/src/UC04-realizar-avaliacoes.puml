@@ -1,0 +1,38 @@
+@startuml UC04-realizar-avaliacoes
+!include _estilo.puml
+title UC04 – Realizar avaliações
+
+|Aluno|
+|Sistema|
+|Banco de Dados|
+|Aluno|
+start
+:Acessar a aba de avaliações do curso;
+|Banco de Dados|
+:Buscar avaliações disponíveis;
+|Sistema|
+if (Existe avaliação disponível\ne dentro do prazo?) then (não)
+  :Exibir "nenhuma avaliação disponível";
+  end
+else (sim)
+  :Exibir lista de avaliações;
+endif
+|Aluno|
+:Selecionar a avaliação;
+:Responder as questões / anexar arquivo;
+:Clicar em "Enviar";
+|Sistema|
+if (Todas as questões respondidas?) then (não)
+  :Alertar questões em branco;
+  |Aluno|
+  :Completar as respostas e enviar;
+  |Sistema|
+else (sim)
+endif
+|Banco de Dados|
+:Salvar respostas com status\n"aguardando correção";
+|Sistema|
+:Exibir "Avaliação realizada";
+:Disponibilizar para a Secretaria corrigir (UC06);
+stop
+@enduml

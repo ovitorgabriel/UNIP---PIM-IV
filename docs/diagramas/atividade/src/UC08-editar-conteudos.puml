@@ -1,0 +1,37 @@
+@startuml UC08-editar-conteudos
+!include _estilo.puml
+title UC08 – Editar conteúdos
+
+|Secretaria|
+|Sistema|
+|Banco de Dados|
+|Secretaria|
+start
+:Acessar o sistema (UC01);
+:Abrir a aba "Conteúdos";
+|Banco de Dados|
+:Buscar conteúdos cadastrados;
+|Sistema|
+:Exibir conteúdos disponíveis;
+|Secretaria|
+:Selecionar um conteúdo;
+:Clicar em "Editar";
+|Sistema|
+:Exibir formulário com os dados atuais;
+|Secretaria|
+:Alterar os dados desejados;
+:Clicar em "Salvar";
+|Sistema|
+if (Dados válidos?) then (não)
+  :Exibir campos inválidos;
+  |Secretaria|
+  :Corrigir os dados;
+  |Sistema|
+else (sim)
+endif
+|Banco de Dados|
+:Salvar as edições;
+|Sistema|
+:Exibir "Edições salvas com sucesso";
+stop
+@enduml

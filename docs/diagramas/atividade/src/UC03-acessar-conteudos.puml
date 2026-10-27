@@ -1,0 +1,36 @@
+@startuml UC03-acessar-conteudos
+!include _estilo.puml
+title UC03 – Acessar conteúdos/avaliações
+
+|Aluno|
+|Sistema|
+|Banco de Dados|
+|Aluno|
+start
+:Fazer login (UC01);
+:Acessar a área de cursos\n(rota de estudos);
+|Sistema|
+|Banco de Dados|
+:Buscar cursos ativos;
+|Sistema|
+:Exibir cursos disponíveis;
+|Aluno|
+:Escolher um curso;
+|Banco de Dados|
+:Buscar conteúdos, atividades\ne progresso do aluno;
+|Sistema|
+:Exibir conteúdos, progresso,\nnotas e atividades do curso;
+|Aluno|
+:Selecionar um conteúdo;
+:Ler / assistir ao conteúdo;
+|Sistema|
+|Banco de Dados|
+:Registrar o progresso do aluno;
+|Aluno|
+if (Deseja realizar a avaliação?) then (sim)
+  :Seguir para UC04 – Realizar avaliações;
+else (não)
+  :Continuar estudando\noutros conteúdos;
+endif
+stop
+@enduml

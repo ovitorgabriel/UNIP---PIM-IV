@@ -1,0 +1,15 @@
+' Estilo comum a todos os diagramas de atividade da plataforma Aprender Mais
+skinparam defaultFontName Arial
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam padding 4
+skinparam ActivityBackgroundColor #FFFFFF
+skinparam ActivityBorderColor #2F4A7A
+skinparam ActivityDiamondBackgroundColor #FFF6D6
+skinparam ActivityDiamondBorderColor #B38600
+skinparam ArrowColor #2F4A7A
+skinparam SwimlaneBorderColor #9AA8C2
+skinparam SwimlaneTitleFontStyle bold
+skinparam NoteBackgroundColor #F3F6FB
+skinparam NoteBorderColor #9AA8C2
+skinparam TitleFontSize 16

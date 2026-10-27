@@ -1,0 +1,33 @@
+@startuml UC09-desativar-conteudos
+!include _estilo.puml
+title UC09 – Desativar conteúdos
+
+|Secretaria|
+|Sistema|
+|Banco de Dados|
+|Secretaria|
+start
+:Acessar o sistema (UC01);
+:Abrir a aba "Conteúdos";
+|Banco de Dados|
+:Buscar conteúdos ativos;
+|Sistema|
+:Exibir conteúdos disponíveis;
+|Secretaria|
+:Selecionar o conteúdo desatualizado;
+:Clicar em "Desativar";
+|Sistema|
+:Pedir confirmação;
+|Secretaria|
+if (Confirma a desativação?) then (não)
+  :Cancelar a operação;
+  end
+else (sim)
+endif
+|Banco de Dados|
+:Alterar status do conteúdo para inativo;
+|Sistema|
+:Ocultar o conteúdo para os alunos;
+:Exibir "Conteúdo desativado com sucesso";
+stop
+@enduml

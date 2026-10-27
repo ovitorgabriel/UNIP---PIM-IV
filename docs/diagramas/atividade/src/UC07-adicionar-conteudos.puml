@@ -1,0 +1,32 @@
+@startuml UC07-adicionar-conteudos
+!include _estilo.puml
+title UC07 – Adicionar conteúdos
+
+|Secretaria|
+|Sistema|
+|Banco de Dados|
+|Secretaria|
+start
+:Acessar o sistema (UC01);
+:Abrir a aba "Conteúdos";
+:Clicar em "Adicionar conteúdo";
+|Sistema|
+:Exibir formulário\n(nome, descrição, curso e anexo);
+|Secretaria|
+:Preencher os dados e anexar arquivo;
+:Clicar em "Salvar";
+|Sistema|
+if (Dados obrigatórios preenchidos\ne anexo válido?) then (não)
+  :Exibir campos inválidos;
+  |Secretaria|
+  :Corrigir os dados;
+  |Sistema|
+else (sim)
+endif
+|Banco de Dados|
+:Salvar conteúdo como ativo;
+|Sistema|
+:Exibir "Conteúdo salvo com sucesso";
+:Disponibilizar o conteúdo para os alunos;
+stop
+@enduml

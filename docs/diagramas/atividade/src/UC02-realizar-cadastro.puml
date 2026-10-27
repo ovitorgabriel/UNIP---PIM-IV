@@ -1,0 +1,37 @@
+@startuml UC02-realizar-cadastro
+!include _estilo.puml
+title UC02 – Realizar cadastro
+
+|Usuário|
+|Sistema|
+|Banco de Dados|
+|Usuário|
+start
+:Navegar pelo site como visitante;
+:Clicar em "Se cadastrar";
+|Sistema|
+:Exibir formulário de cadastro;
+|Usuário|
+repeat
+  :Preencher nome, CPF, e-mail e senha;
+  |Sistema|
+  :Validar os dados informados;
+backward :Exibir campos inválidos;
+repeat while (Dados válidos?) is (não) not (sim)
+|Banco de Dados|
+:Verificar se CPF/e-mail já existem;
+|Sistema|
+if (Já cadastrado?) then (sim)
+  :Informar que o cadastro já existe\ne sugerir o login (UC01);
+  end
+else (não)
+endif
+|Banco de Dados|
+:Salvar novo usuário com perfil Aluno;
+|Sistema|
+:Exibir "Cadastro realizado com sucesso";
+:Liberar acesso aos conteúdos dos cursos;
+|Usuário|
+:Acessar a área do aluno;
+stop
+@enduml

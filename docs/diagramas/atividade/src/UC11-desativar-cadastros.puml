@@ -1,0 +1,39 @@
+@startuml UC11-desativar-cadastros
+!include _estilo.puml
+title UC11 – Desativar cadastros
+
+|ADM|
+|Sistema|
+|Banco de Dados|
+|ADM|
+start
+:Acessar o sistema (UC01);
+:Clicar em "Desativar usuário";
+:Pesquisar por CPF, e-mail ou RA;
+|Banco de Dados|
+:Buscar o usuário;
+|Sistema|
+if (Usuário encontrado?) then (não)
+  :Exibir "usuário não encontrado";
+  end
+else (sim)
+  :Exibir dados do usuário;
+endif
+|ADM|
+:Selecionar o usuário;
+:Clicar em "Desativar";
+|Sistema|
+:Pedir confirmação;
+|ADM|
+if (Confirma?) then (não)
+  :Cancelar a operação;
+  end
+else (sim)
+endif
+|Banco de Dados|
+:Alterar status do usuário para inativo;
+|Sistema|
+:Bloquear o acesso do usuário;
+:Exibir "Usuário desativado com sucesso";
+stop
+@enduml

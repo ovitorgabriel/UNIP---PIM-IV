@@ -1,0 +1,43 @@
+@startuml UC01-acessar-sistema
+!include _estilo.puml
+title UC01 – Acessar sistema
+
+|Usuário|
+|Sistema|
+|Banco de Dados|
+|Usuário|
+start
+:Acessar a tela de login;
+:Informar e-mail/RA e senha;
+|Sistema|
+:Validar preenchimento dos campos;
+if (Campos preenchidos?) then (não)
+  :Exibir mensagem de campos obrigatórios;
+  |Usuário|
+  :Corrigir os dados;
+  |Sistema|
+else (sim)
+endif
+|Banco de Dados|
+:Consultar usuário e senha;
+|Sistema|
+if (Usuário encontrado e ativo?) then (não)
+  :Exibir "usuário não encontrado"\ncom a opção "Realizar cadastro";
+  |Usuário|
+  if (Deseja se cadastrar?) then (sim)
+    :Seguir para UC02 – Realizar cadastro;
+    stop
+  else (não)
+    :Continuar navegando\napenas como visitante;
+    end
+  endif
+else (sim)
+endif
+|Sistema|
+:Identificar o perfil\n(Aluno, Secretaria ou ADM);
+:Gerar sessão / token de acesso;
+:Abrir a tela inicial do perfil;
+|Usuário|
+:Acessar o sistema;
+stop
+@enduml

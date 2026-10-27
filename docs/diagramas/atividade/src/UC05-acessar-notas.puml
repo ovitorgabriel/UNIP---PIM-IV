@@ -1,0 +1,30 @@
+@startuml UC05-acessar-notas
+!include _estilo.puml
+title UC05 – Acessar notas
+
+|Aluno|
+|Sistema|
+|Banco de Dados|
+|Aluno|
+start
+:Acessar o sistema (UC01);
+:Na tela inicial, clicar em "Acessar notas";
+|Banco de Dados|
+:Buscar notas do aluno\n(avaliação, matéria, nota e feedback);
+|Sistema|
+if (Possui notas lançadas?) then (não)
+  :Exibir "nenhuma nota disponível";
+  end
+else (sim)
+  :Exibir notas por avaliação\n(NP1, NP2...) e matéria;
+  :Calcular média e situação;
+  if (Média suficiente?) then (sim)
+    :Indicar "Apto" para as provas;
+  else (não)
+    :Indicar "Não apto";
+  endif
+endif
+|Aluno|
+:Visualizar notas e feedback;
+stop
+@enduml

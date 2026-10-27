@@ -1,0 +1,40 @@
+@startuml UC06-avaliar-atividades
+!include _estilo.puml
+title UC06 – Avaliar atividades
+
+|Secretaria|
+|Sistema|
+|Banco de Dados|
+|Secretaria|
+start
+:Acessar o sistema (UC01);
+:Clicar em "Avaliar";
+|Banco de Dados|
+:Buscar atividades com status\n"aguardando correção";
+|Sistema|
+:Exibir lista de alunos\ne arquivos enviados;
+|Secretaria|
+repeat
+  :Selecionar a atividade de um aluno;
+  |Banco de Dados|
+  :Buscar respostas do aluno;
+  |Sistema|
+  :Exibir respostas;
+  |Secretaria|
+  :Atribuir nota (1 a 10) e observação;
+  |Sistema|
+  if (Nota entre 1 e 10?) then (não)
+    :Exibir "nota inválida";
+    |Secretaria|
+    :Corrigir a nota;
+    |Sistema|
+  else (sim)
+  endif
+  |Banco de Dados|
+  :Salvar nota e feedback;
+  |Sistema|
+  :Exibir "Atividade avaliada com sucesso";
+  |Secretaria|
+repeat while (Há outras atividades pendentes?) is (sim) not (não)
+stop
+@enduml

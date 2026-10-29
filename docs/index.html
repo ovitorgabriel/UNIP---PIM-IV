@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aprender Mais – PIM IV</title>
+<style>
+body{margin:0;font:16px/1.6 system-ui,sans-serif;background:#f6f7fb;color:#1c2433}
+header{background:#2b4acb;color:#fff;padding:3rem 1rem;text-align:center}
+main{max-width:1000px;margin:auto;padding:1rem}
+h1{margin:0} h2{margin-top:2.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card,section{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 1px 4px #0002}
+.img{overflow:auto;max-height:420px} img{max-width:100%}
+table{border-collapse:collapse;width:100%;background:#fff} td,th{border:1px solid #ddd;padding:.4rem .6rem;text-align:left}
+code{background:#e9ecf5;padding:.1rem .3rem;border-radius:4px}
+</style></head><body>
+<header><h1>Aprender Mais</h1><p>PIM IV – Plataforma educacional (aplicação desktop em C# / .NET)</p></header>
+<main>
+<h2>Sobre o projeto</h2>
+<p>Plataforma educacional com três perfis, desenvolvida em camadas (Domínio, Aplicação, Infraestrutura e Desktop com Windows Forms), com testes em xUnit.</p>
+<div class="grid">
+<div class="card"><b>Aluno</b><br>Acessa conteúdos, realiza avaliações e consulta notas.</div>
+<div class="card"><b>Secretaria</b><br>Avalia atividades e gerencia conteúdos.</div>
+<div class="card"><b>Administrador</b><br>Cadastra secretarias e gerencia cadastros.</div>
+</div>
+<h2>Arquitetura</h2>
+<table><tr><th>Camada</th><th>Responsabilidade</th></tr>
+<tr><td><code>Dominio</code></td><td>Entidades, regras de negócio e contratos de repositório</td></tr>
+<tr><td><code>Aplicacao</code></td><td>Serviços (casos de uso), DTOs, sessão</td></tr>
+<tr><td><code>Infraestrutura</code></td><td>Repositórios em memória, BCrypt, relógio</td></tr>
+<tr><td><code>Desktop</code></td><td>Windows Forms (login e telas por perfil)</td></tr>
+<tr><td><code>Testes</code></td><td>xUnit</td></tr></table>
+<h2>Como executar (Windows, .NET 10 SDK)</h2>
+<p>Rode <code>criar-solucao.cmd</code> e depois <code>dotnet run --project AprenderMais.Desktop\AprenderMais.Desktop.csproj</code>. Senha das contas de demonstração: <code>123456</code>.</p>
+<p><a href="https://github.com/ovitorgabriel/PIM-IV---Vitor">Ver código no GitHub</a></p>
+<h2>Diagramas de atividade</h2>
+<section><h3>UC01 – Acessar sistema</h3><div class="img"><a href="diagramas/atividade/svg/UC01-acessar-sistema.svg" target="_blank"><img src="diagramas/atividade/svg/UC01-acessar-sistema.svg" alt="UC01 – Acessar sistema" loading="lazy"></a></div></section>
+<section><h3>UC02 – Realizar cadastro</h3><div class="img"><a href="diagramas/atividade/svg/UC02-realizar-cadastro.svg" target="_blank"><img src="diagramas/atividade/svg/UC02-realizar-cadastro.svg" alt="UC02 – Realizar cadastro" loading="lazy"></a></div></section>
+<section><h3>UC03 – Acessar conteudos</h3><div class="img"><a href="diagramas/atividade/svg/UC03-acessar-conteudos.svg" target="_blank"><img src="diagramas/atividade/svg/UC03-acessar-conteudos.svg" alt="UC03 – Acessar conteudos" loading="lazy"></a></div></section>
+<section><h3>UC04 – Realizar avaliacoes</h3><div class="img"><a href="diagramas/atividade/svg/UC04-realizar-avaliacoes.svg" target="_blank"><img src="diagramas/atividade/svg/UC04-realizar-avaliacoes.svg" alt="UC04 – Realizar avaliacoes" loading="lazy"></a></div></section>
+<section><h3>UC05 – Acessar notas</h3><div class="img"><a href="diagramas/atividade/svg/UC05-acessar-notas.svg" target="_blank"><img src="diagramas/atividade/svg/UC05-acessar-notas.svg" alt="UC05 – Acessar notas" loading="lazy"></a></div></section>
+<section><h3>UC06 – Avaliar atividades</h3><div class="img"><a href="diagramas/atividade/svg/UC06-avaliar-atividades.svg" target="_blank"><img src="diagramas/atividade/svg/UC06-avaliar-atividades.svg" alt="UC06 – Avaliar atividades" loading="lazy"></a></div></section>
+<section><h3>UC07 – Adicionar conteudos</h3><div class="img"><a href="diagramas/atividade/svg/UC07-adicionar-conteudos.svg" target="_blank"><img src="diagramas/atividade/svg/UC07-adicionar-conteudos.svg" alt="UC07 – Adicionar conteudos" loading="lazy"></a></div></section>
+<section><h3>UC08 – Editar conteudos</h3><div class="img"><a href="diagramas/atividade/svg/UC08-editar-conteudos.svg" target="_blank"><img src="diagramas/atividade/svg/UC08-editar-conteudos.svg" alt="UC08 – Editar conteudos" loading="lazy"></a></div></section>
+<section><h3>UC09 – Desativar conteudos</h3><div class="img"><a href="diagramas/atividade/svg/UC09-desativar-conteudos.svg" target="_blank"><img src="diagramas/atividade/svg/UC09-desativar-conteudos.svg" alt="UC09 – Desativar conteudos" loading="lazy"></a></div></section>
+<section><h3>UC10 – Cadastrar secretaria</h3><div class="img"><a href="diagramas/atividade/svg/UC10-cadastrar-secretaria.svg" target="_blank"><img src="diagramas/atividade/svg/UC10-cadastrar-secretaria.svg" alt="UC10 – Cadastrar secretaria" loading="lazy"></a></div></section>
+<section><h3>UC11 – Desativar cadastros</h3><div class="img"><a href="diagramas/atividade/svg/UC11-desativar-cadastros.svg" target="_blank"><img src="diagramas/atividade/svg/UC11-desativar-cadastros.svg" alt="UC11 – Desativar cadastros" loading="lazy"></a></div></section>
+
+</main></body></html>
